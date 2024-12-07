@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Laptops Online</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f9f3;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation Styling */
+        header {
+            background-color: #a2d2ff;
+            padding: 20px 0;
+            text-align: center;
+            color: white;
+            font-size: 1.5em;
+            position: relative;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Animation for "Welcome" text */
+        .welcome-text {
+            font-size: 3em;
+            font-weight: bold;
+            color: #2e8b57;
+            opacity: 0; /* Initial state is invisible */
+            animation: slideIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav {
+            background-color: #74c7eb;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Product Section */
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 30px;
+            gap: 20px;
+            background-color: #e0f7fa;
+        }
+
+        .product {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product h3 {
+            color: #2e8b57;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        .product p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .product .price {
+            font-size: 1.2em;
+            color: #2e8b57;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            background-color: #a2d2ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-buy:hover {
+            background-color: #74c7eb;
+        }
+
+        /* Shopping Cart */
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #a2d2ff;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .filter-section select {
+            padding: 10px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #a2d2ff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+        }
+
+        /* About Section Styling */
+        .about-section {
+            background-color: #f7f7f7;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 2.5em;
+            color: #2e8b57;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="welcome-text">Welcome to LapShop</div>
+        <p>Find your perfect laptop with great deals and fast shipping!</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#laptops">Shop</a> <!-- This will scroll to the laptop section -->
+        <a href="#about">About</a> <!-- This will scroll to the about section -->
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Filter Section -->
+    <div class="filter-section" id="laptops">
+        <label for="category">Filter by Category:</label>
+        <select id="category" onchange="filterProducts()">
+            <option value="all">All</option>
+            <option value="gaming">Gaming</option>
+            <option value="business">Business</option>
+            <option value="ultrabook">Ultrabook</option>
+        </select>
+    </div>
+
+    <!-- Product Section -->
+    <div class="product-section" id="productSection">
+        <!-- Laptop 1 -->
+        <div class="product" data-category="gaming">
+            <img src="https://via.placeholder.com/250" alt="Laptop 1">
+            <h3>SuperFast Laptop Pro</h3>
+            <p>High performance, sleek design, and long battery life for professionals and gamers.</p>
+            <p class="price">$999</p>
+            <button class="btn-buy" onclick="addToCart('SuperFast Laptop Pro', 999)">Add to Cart</button>
+        </div>
+
+        <!-- Laptop 2 -->
+        <div class="product" data-category="business">
+            <img src="https://via.placeholder.com/250" alt="Laptop 2">
+            <h3>UltraBook Light</h3>
+            <p>Ultra-lightweight and perfect for everyday use with a stunning display and fast processing speed.</p>
+            <p class="price">$749</p>
+            <button class="btn-buy" onclick="addToCart('UltraBook Light', 749)">Add to Cart</button>
+        </div>
+
+        <!-- Laptop 3 -->
+        <div class="product" data-category="gaming">
+            <img src="https://via.placeholder.com/250" alt="Laptop 3">
+            <h3>Gaming Beast X</h3>
+            <p>Next-level gaming with the latest GPU, fast refresh rate, and exceptional sound quality.</p>
+            <p class="price">$1299</p>
+            <button class="btn-buy" onclick="addToCart('Gaming Beast X', 1299)">Add to Cart</button>
+        </div>
+
+        <!-- Laptop 4 -->
+        <div class="product" data-category="ultrabook">
+            <img src="https://via.placeholder.com/250" alt="Laptop 4">
+            <h3>UltraSlim Laptop</h3>
+            <p>Perfect for travelers and minimalists with amazing portability and battery life.</p>
+            <p class="price">$899</p>
+            <button class="btn-buy" onclick="addToCart('UltraSlim Laptop', 899)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+        <h2>About Our Shop</h2>
+        <p>We are a trusted laptop seller with a passion for bringing the best deals to our customers.</p>
+        <p>Visit us at: <strong>XXX Roda, Kerala</strong></p>
+    </div>
+
+    <!-- Shopping Cart Icon -->
+    <div class="cart" onclick="viewCart()">
+        Cart: <span id="cartCount">0</span> items
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Buy Laptops Online | All Rights Reserved</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let cart = [];
+
+        function addToCart(productName, price) {
+            cart.push({ productName, price });
+            document.getElementById('cartCount').textContent = cart.length;
+        }
+
+        function viewCart() {
+            if (cart.length === 0) {
+                alert("Your cart is empty.");
+            } else {
+                let cartDetails = "Items in your cart:\n";
+                cart.forEach(item => {
+                    cartDetails += `${item.productName} - $${item.price}\n`;
+                });
+                cartDetails += `Total: $${cart.reduce((total, item) => total + item.price, 0)}`;
+                alert(cartDetails);
+            }
+        }
+
+        function filterProducts() {
+            const category = document.getElementById('category').value;
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                if (category === 'all' || product.getAttribute('data-category') === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
